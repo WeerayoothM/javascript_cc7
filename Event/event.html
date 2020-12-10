@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" onsubmit="click()">
+      <input type="text" />
+      <input type="submit" />
+      <!-- <button type="submit">submit</button> -->
+    </form>
+    <input id="btn" type="button" value="Click me" />
+    <script>
+      const btn = document.getElementById("btn");
+      btn.addEventListener("click", function (event) {
+        alert(event.type);
+      });
+
+      function click() {
+        const a = 2;
+        alert(a);
+        alert("sus");
+      }
+      const a = 1;
+
+      console.log(a);
+      click();
+    </script>
+  </body>
+</html>

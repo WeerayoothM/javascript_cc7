@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="plus" onclick="add()">+</button>
+    <button id="minus" onclick="minus()">-</button>
+    <button id="reset" onclick="reset()">reset</button>
+    <p id="result">0</p>
+
+    <script>
+      function add() {
+        const result = document.getElementById("result");
+        result.innerHTML = Number(result.innerHTML) + 1;
+      }
+      function minus() {
+        const result = document.getElementById("result");
+        result.innerHTML = Number(result.innerHTML) - 1;
+      }
+      function reset() {
+        const result = document.getElementById("result");
+        result.innerHTML = 0;
+      }
+    </script>
+  </body>
+</html>

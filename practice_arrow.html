@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rewrite in array function</title>
+  </head>
+  <body>
+    <script>
+      // (0) -- Function
+      const add = (a, b) => {
+        return a + b;
+      };
+
+      console.log(add(1, 2));
+
+      const subtract = (a, b) => ({});
+
+      console.log(subtract(1, 2));
+
+      // (1) -- Function Declaration
+      function greetings() {
+        console.log("Hello, function !");
+      }
+
+      // (2) -- Function Expression
+      const walking = function () {
+        console.log("Walking ...");
+      };
+
+      // (3) -- Arrow Function
+      const running = () => {
+        console.log("Running ...");
+      };
+
+      // (4) -- First class citizen
+      function sayHi(name, doActivity) {
+        console.log(`Hi, ${name}`);
+        doActivity();
+      }
+
+      const sayBye = function () {
+        console.log("Bye, Codecamp");
+      };
+
+      sayHi("Codecamp", sayBye);
+
+      // (5) -- Lets see some real world example
+      function testThings(array, doSomething) {
+        for (let item of array) {
+          doSomething(item);
+        }
+      }
+
+      function doSomeAction(item) {
+        console.log(item);
+      }
+
+      testThings([1, 2, 3], doSomeAction);
+
+      // (6) -- Function as values in object
+      const person = {
+        name: "NongKnot",
+        gpa: "2.9",
+        age: "20",
+        walking: function () {
+          console.log("walking");
+        },
+        running: function () {
+          console.log("running");
+        },
+        playing() {
+          console.log("playing");
+        },
+      };
+      console.log(person);
+
+      // (7) -- closure
+      const greaterThan = (n) => (m) => m > n;
+      let greaterThan10 = greaterThan(10);
+      console.log(greaterThan10(11));
+    </script>
+  </body>
+</html>

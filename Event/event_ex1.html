@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn_hide">Click to hide th text</button>
+    <p id="first_paragraph">text</p>
+    <script>
+      const btn_hide = document.getElementById("btn_hide");
+      btn_hide.addEventListener("click", () => {
+        document.getElementById("first_paragraph").hidden = true;
+      });
+    </script>
+  </body>
+</html>

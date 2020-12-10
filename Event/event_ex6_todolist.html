@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn_add" onclick="addtodo(event)">Add</button>
+    <ul id="toDoList"></ul>
+
+    <script>
+      function addtodo(event) {
+        // const provinceSelect = e.target.value;
+        const inputList = prompt("Enter to do list");
+        const inputListElem = `<li onclick="textDecorate(event)">${inputList}<br><button onclick="editList(event)">Edit</button><button onclick="deleteList(event)">Del</button></li>`;
+        const btn_add = document.getElementById("btn_add");
+        const toDoList = document.getElementById("toDoList");
+        // let pushelem = toDoList.createElement('li')
+
+        toDoList.insertAdjacentHTML("beforeend", inputListElem);
+      }
+      function deleteList(event) {
+        event.target.parentElement.remove();
+      }
+      function editList(event) {
+        const editList = prompt("Enter new to do list");
+        event.target.parentElement.outerHTML = `<li>${editList}<br><button onclick="editList(event)">Edit</button><button onclick="deleteList(event)">Del</button></li>`;
+      }
+
+      function textDecorate(event) {
+        let decorate = event.target.style.textDecoration;
+        if (decorate === "") {
+          event.target.style.textDecoration = "line-through";
+        } else {
+          event.target.style.textDecoration = "";
+        }
+      }
+    </script>
+  </body>
+</html>
+<script>
+  // 6
+  // let cnt = 1;
+  // function addTodoList(event) {
+  //   let length = document.querySelectorAll("#todoList li").length;
+  //   console.log(
+  //     "length = " + document.querySelectorAll("#todoList li").length
+  //   );
+  //   let li = `<li id="li${cnt}" onclick="clickTodo(event)">To do ${cnt}</li>
+  //   <button id="edit${cnt}" onclick="editTodo(event)">edit</button>
+  //   <button id="del${cnt}" onclick="delTodo(event)">Del</button>`;
+  //   document.getElementById("todoList").insertAdjacentHTML("beforeend", li);
+  //   cnt++;
+  // }
+  // // clickTodo
+  // function clickTodo(event) {
+  //   for (let i = 0; i < cnt; i++) {
+  //     if (event.target.id === `li${i}`) {
+  //       document.getElementById(`li${i}`).style.textDecoration =
+  //         "line-through";
+  //     }
+  //   }
+  // }
+  // // editButton
+  // function editTodo(event) {
+  //   for (let i = 0; i < cnt; i++) {
+  //     if (event.target.id === `edit${i}`) {
+  //       document.getElementById(`li${i}`).innerHTML = prompt("Edit Todo");
+  //     }
+  //   }
+  // }
+  // // deleteButton
+  // function delTodo(event) {
+  //   for (let i = 0; i < cnt; i++) {
+  //     if (event.target.id === `del${i}`) {
+  //       document.getElementById(`li${i}`).remove();
+  //       document.getElementById(`edit${i}`).remove();
+  //       document.getElementById(`del${i}`).remove();
+  //     }
+  //   }
+  // }
+</script>

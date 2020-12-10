@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="elem1"></div>
+
+    <ol id="elem2">
+      sss
+      <li>Hello</li>
+      <li>World</li>
+    </ol>
+    <table id="table">
+      aaa
+      <tr>
+        <td>Test</td>
+      </tr>
+    </table>
+
+    <script>
+      let text = "sus";
+      // elem.append(document.createTextNode(text));
+      //   elem.innerHTML = text;
+      //   elem.textContent = text;
+      elem1.insertAdjacentHTML("afterbegin", text);
+
+      function clear(elem) {
+        /* your code */
+        elem.innerHTML = "";
+      }
+      //   clear(elem2); // clears the list
+
+      console.log(table); // the table, as it should be
+
+      //   table.remove();
+      // why there's still aaa in the document?
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="province">Province</label>
+    <select id="provinces" onchange="provinceCheck(event)">
+      <option value="bangkok">Bangkok</option>
+      <option value="nonthaburi">Nonthaburi</option>
+    </select>
+    <label for="District">Province</label>
+    <select id="districts">
+      <!-- <option id="ratchathewi">Ratchathewi</option>
+      <option id="patumwan">Patumwan</option>
+      <option id="muang">Muang</option>
+      <option id="pakgret">Pakgret</option> -->
+    </select>
+
+    <script>
+      const provinceObj = {
+        bangkok: ["Ratchathewi", "Patumwan"],
+        nonthaburi: ["Muang", "Pakgret"],
+      };
+      function provinceCheck(e) {
+        const provinceSelect = e.target.value;
+        // console.log(provinceValue);
+        // console.log(provinceObj[provinceSelect]);
+        const districtArr = provinceObj[provinceSelect].map(
+          (input) => `<option>${input}</option>`
+        );
+        document.getElementById("districts").innerHTML = districtArr.join("");
+      }
+
+      //   function provinceCheck(e) {
+      //     if (event.target.value === "bangkok") {
+      //       for (dis of document.body.children[3].children) {
+      //         if (dis.value === "muang") dis.hidden = true;
+      //         if (dis.value === "pakgret") dis.hidden = true;
+      //       }
+      //     }
+      //     if (event.target.value === "nonthaburi") {
+      //       for (dis of document.body.children[3].children) {
+      //         if (dis.value === "ratchathewi") dis.hidden = true;
+      //         if (dis.value === "patumwan") dis.hidden = true;
+      //       }
+      //     }
+      //   }
+    </script>
+  </body>
+</html>

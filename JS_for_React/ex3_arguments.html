@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Rest
+      function showNumber(first, second, ...numbers) {
+        console.log(numbers);
+        console.log(arguments);
+      }
+      showNumber(1, 2, 3, 4, 5, 6);
+
+      // Spread
+      let arr = [1, 2, 3, 4];
+      console.log(Math.max(...arr));
+    </script>
+  </body>
+</html>

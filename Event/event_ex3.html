@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn_hide">Hide</button>
+    <p id="first_paragraph">Click to hide me</p>
+    <script>
+      const btn_hide = document.getElementById("btn_hide");
+      btn_hide.addEventListener("click", () => {
+        if (document.getElementById("btn_hide").innerHTML === "Hide") {
+          document.getElementById("btn_hide").innerHTML = "Show";
+          document.getElementById("first_paragraph").hidden = true;
+        } else {
+          document.getElementById("btn_hide").innerHTML = "Hide";
+          document.getElementById("first_paragraph").hidden = false;
+        }
+      });
+    </script>
+  </body>
+</html>

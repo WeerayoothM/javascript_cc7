@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let data = {
+        Fish: {
+          trout: {},
+          salmon: {},
+        },
+
+        Tree: {
+          Huge: {
+            sequoia: {},
+            oak: {},
+          },
+          Flowering: {
+            "apple tree": {},
+            magnolia: {},
+          },
+        },
+      };
+      let createList = (ul, innerList) => {
+        for (name in innerList) {
+          let newul = ul.cloneNode(false); // clone the message
+          ul.lastChild.append(newul);
+          newul.insertAdjacentHTML("beforeend", `<li>${name}</li>`);
+          if (innerList[name] !== {}) {
+            createList(ul.lastChild, innerList[name]);
+          }
+        }
+      };
+
+      let createTree = (container, data) => {
+        let ulContainer = document.createElement("ul");
+        ulContainer.id = container;
+        document.body.prepend(ulContainer);
+        // createList(ulContainer, data);
+        for (list in data) {
+          ulContainer.insertAdjacentHTML("beforeend", `<li>${list}</li>`);
+          let value = data[list];
+          for (subname in value) {
+            let ul2 = ulContainer.cloneNode(false); // clone the message
+            ulContainer.lastChild.append(ul2);
+            ul2.insertAdjacentHTML("beforeend", `<li>${subname}</li>`);
+            if (value[subname] !== {}) {
+              createList(ul2, value[subname]);
+            }
+          }
+        }
+      };
+      createTree("container", data);
+    </script>
+  </body>
+</html>
+
+<!--  เฉลยยยยยยยยยยยยยยยยยยยยยยยยยยย
+<!DOCTYPE html>
+<html>
+<body>
+
+  <div id="container"></div>
+
+  <script>
+    let data = {
+      "Fish": {
+        "trout": {},
+        "salmon": {}
+      },
+
+      "Tree": {
+        "Huge": {
+          "sequoia": {},
+          "oak": {}
+        },
+        "Flowering": {
+          "apple tree": {},
+          "magnolia": {}
+        }
+      }
+    };
+
+    function createTree(container, obj) {
+      container.innerHTML = createTreeText(obj);
+    }
+
+    function createTreeText(obj) { // standalone recursive function
+      let li = '';
+      let ul;
+      for (let key in obj) {
+        li += '<li>' + key + createTreeText(obj[key]) + '</li>';
+      }
+      if (li) {
+        ul = '<ul>' + li + '</ul>'
+      }
+      return ul || '';
+    }
+
+    createTree(container, data);
+  </script>
+</body>
+</html> -->

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      li {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" class="todo-input" />
+    <button class="todo-add-btn">Add</button>
+    <ul class="todo-container">
+      <!-- <div class = "todo-item">  ร่างงงงงงงงงงงงงงงง
+              <li class = 'todo-text'>Todo1</li>
+              <button class="todo-edit-btn"></button>
+              <button class="todo-del-btn"></button>
+          </div> -->
+    </ul>
+
+    <script>
+      //Selector
+      const todoAddButton = document.querySelector(".todo-add-btn");
+      const todoInput = document.querySelector(".todo-input");
+      const todoContainer = document.querySelector(".todo-container");
+
+      //event
+      todoAddButton.addEventListener("click", addTodo);
+
+      //function
+      function addTodo() {
+        const todoDiv = document.createElement("div");
+        todoDiv.classList.add("todo-item");
+
+        const todoText = document.createElement("li");
+        todoText.classList.add("todo-text");
+        todoText.innerHTML = todoInput.value;
+        todoText.addEventListener("click", lineThrough);
+
+        const editButton = document.createElement("button");
+        editButton.classList.add("todo-edit-btn");
+        editButton.innerHTML = "Edit";
+        editButton.addEventListener("click", editTodo);
+        // console.log(editButton);
+
+        const delButton = document.createElement("button");
+        delButton.classList.add("todo-del-btn");
+        delButton.innerHTML = "Del";
+        delButton.addEventListener("click", deleteTodo);
+        // ถึงตรงนี้ได้ element ใน todolist ครบแล้ว
+
+        todoDiv.append(todoText);
+        todoDiv.append(editButton);
+        todoDiv.append(delButton);
+        todoContainer.append(todoDiv);
+        todoInput.value = "";
+      }
+      function editTodo(event) {
+        const todoTextEdit = prompt("Enter new todo list");
+        event.target.previousElementSibling.innerHTML = todoTextEdit;
+      }
+      function deleteTodo(event) {
+        event.target.parentElement.remove();
+      }
+      function lineThrough(event) {
+        let decorate = event.target.style.textDecoration;
+        if (decorate === "") {
+          event.target.style.textDecoration = "line-through";
+        } else {
+          event.target.style.textDecoration = "";
+        }
+      }
+    </script>
+  </body>
+</html>

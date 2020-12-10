@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>A paragraph</p>
+    <div>A div</div>
+
+    <script>
+      console.log(document.body.firstElementChild.innerHTML);
+      console.log(document.body.innerHTML);
+      document.body.firstElementChild.innerHTML = "<h1>Example</h1>"; // แสดง contents ปัจจุบัน
+      //   document.body.innerHTML = "The new BODY!"; // เขียนทับ
+    </script>
+  </body>
+</html>
